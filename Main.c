@@ -1,6 +1,9 @@
+
 #include <GL/glut.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
+
+#include <stdio.h>
 
 #include "Model.h"
 GLfloat diffuse[] = {1.0, 1.0, 1.0, 1.0};
@@ -25,19 +28,26 @@ void keyboard( unsigned char key, int x, int y) {
 }
 
 void init() {
+  int xScreenSize, yScreenSize, xPos, yPos;
+  const int xSize = 800, ySize = 600;
+  xScreenSize = glutGet(GLUT_SCREEN_WIDTH);
+  yScreenSize = glutGet(GLUT_SCREEN_HEIGHT);
+  xPos = (xScreenSize - xSize) / 2;
+  yPos = (yScreenSize - ySize) / 2;
+  
 	glutInitDisplayMode (GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGB);
-	glutInitWindowSize(800,600);
-	glutInitWindowPosition(0,0);
+	glutInitWindowSize(xSize, ySize);
+	glutInitWindowPosition(xPos, yPos);
 	glutCreateWindow("OpenGL - Movimento");
-	glClearColor (0.0,0.0,0.0,0.0);
+	glClearColor (0.0, 0.0, 0.0, 0.0);
 
-	glViewport(0, 0, (GLsizei) 800, (GLsizei) 600);
+	glViewport(0, 0, (GLsizei) xSize, (GLsizei) xSize);
 	glMatrixMode (GL_PROJECTION);
 	glLoadIdentity();
 	gluPerspective((GLdouble)40.0, (GLdouble) 1.0, (GLdouble)1.0, (GLdouble)100.0);
 
 	glMatrixMode(GL_MODELVIEW);
-	glTranslatef(0.0,0., -3.0);
+	glTranslatef(0.0, 0.0, -3.0);
 
 	glShadeModel(GL_SMOOTH);
 
