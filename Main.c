@@ -6,6 +6,7 @@
 #include <stdio.h>
 
 #include "Model.h"
+
 GLfloat diffuse[] = {1.0, 1.0, 1.0, 1.0};
 GLfloat ambient[] = {1.0, 1.0, 1.0, 0.1};
 GLfloat position[] = {0.0, 2.0, 0.0, 0.0};
@@ -13,6 +14,7 @@ GLfloat position[] = {0.0, 2.0, 0.0, 0.0};
 void repaint() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	drawModel();
+  frame++;
 	glutSwapBuffers();
 }
 
@@ -64,7 +66,7 @@ void init() {
     glutDisplayFunc(&repaint);
 	glutIdleFunc(&repaint);
 	glutKeyboardFunc(&keyboard);
-	glutMainLoop () ;
+	glutMainLoop();
 }
 
 int main (int argc, char** argv) {
