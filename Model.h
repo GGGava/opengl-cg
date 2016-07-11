@@ -19,7 +19,6 @@
 // Global Variables
 extern int rotateAngle;
 extern float SCALE;
-extern int frame;
 
 // Movement matrix
 extern float angles[16][3];

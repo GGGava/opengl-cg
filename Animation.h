@@ -1,8 +1,8 @@
 #ifndef ANIMATION_H
 #define ANIMATION_H
 
-extern int frame;
-extern char smoothDegree;
+extern long int frame;
+extern int smoothDegree;
 
 void calculateMatrix(void);
 

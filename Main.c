@@ -6,6 +6,7 @@
 #include <stdio.h>
 
 #include "Model.h"
+#include "Animation.h"
 
 GLfloat diffuse[] = {1.0, 1.0, 1.0, 1.0};
 GLfloat ambient[] = {1.0, 1.0, 1.0, 0.1};
