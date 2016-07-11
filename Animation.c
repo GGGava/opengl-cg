@@ -9,6 +9,36 @@
 long int frame = 0;
 int smoothDegree = 16;
 
+char sprint = 0;
+
+
+const float MovX_sprint[16][ANIM_MATRIX] = {
+{ 0,5,10,5,0,-5,-10,-5 },
+{0,0,0,0,0,0,0,0 },
+{ -10,-20,-30,-20,-10,-15,-20,-15 },
+{ 35, 30, 20, 40, 45, 55, 45, 40 },
+
+{ 145, 90, 45, 45, 90, 100, 135, 170 },
+{0,0,0,0,0,0,0,0 },
+{ -45, -45, 0, -40, -90, -90, -135, -90 },
+
+{ 150, 135, 90, 50, 80, 110, 130, 180 },
+{0,0,0,0,0,0,0,0 },
+{ -90, -45, -40, 0, -90, -90, -130,-45 },
+
+{ 20, 10, 20, 45, 90, 135, 135, 70 },
+{0,0,0,0,0,0,0,0 },
+{ 45, 90, 110, 135, 90, 45, 10, 20 },
+
+{ 10, 20, 45, 90, 120, 110, 90, 45 },
+{0,0,0,0,0,0,0,0 },
+{ 90, 135, 90, 90, 45, 30, 0, 30 },
+};
+
+
+
+
+#if 0
 const float MovX_walk[16][ANIM_MATRIX] = {
   {  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0}, /* Trunk                    0                     */
   {  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0}, /* Neck                     1                     */
@@ -27,6 +57,28 @@ const float MovX_walk[16][ANIM_MATRIX] = {
   {000.0,000.0,000.0,000.0,000.0,000.0,000.0,000.0}, /* Left Front Leg          14                    */
   {  0.0,-30.0,-15.0,-15.0,-15.0, 15.0, 60.0,-90.0}  /* Lower Left Front Leg    15                    */
 };
+#endif
+
+const float MovX_walk[16][ANIM_MATRIX] = {
+{0,0,0,0,0,0,0,0 },
+{0,0,0,0,0,0,0,0 },
+{0,0,0,0,0,0,0,0 },
+{55,65,65,65,55,65,65,65 },
+{70,115,150,125,125,110,105,85},
+{0,0,0,0,0,0,0,0 },
+{-45,-100,-90,-30,-45,-55,-70,-60 },
+{105,95,85,75,65,85,135,125},
+{0,0,0,0,0,0,0,0 },
+{-45,-45,-45,-30,-50,-90,-75,-45 },
+{65,60,55,70,110,95,80,70 },
+{0,0,0,0,0,0,0,0 },
+{10,30,40,80,40,20,10,10 },
+{90,105,90,65,60,45,50,70 },
+{0,0,0,0,0,0,0,0 },
+{45,30,20,25,35,30,45,90 }
+};
+
+
 void calculateMatrix(void) {
   // Prevent matrix overflow
   int myframe = frame % MAXFRAME;
@@ -35,7 +87,13 @@ void calculateMatrix(void) {
     float averageAngle;
     int frameSmooth = myframe/smoothDegree;
     int frameSmoothPlusOne = ((myframe/smoothDegree)+1) % ANIM_MATRIX;
-    averageAngle = (MovX_walk[i][frameSmooth] * (1.0 - ((float)(myframe%smoothDegree)/(float)smoothDegree))) + (MovX_walk[i][frameSmoothPlusOne] * ((float)(myframe%smoothDegree)/(float)smoothDegree));
+    if (sprint) {
+      averageAngle = (MovX_sprint[i][frameSmooth] * (1.0 - ((float)(myframe%smoothDegree)/(float)smoothDegree))) +
+      (MovX_sprint[i][frameSmoothPlusOne] * ((float)(myframe%smoothDegree)/(float)smoothDegree));
+    } else {
+      averageAngle = (MovX_walk[i][frameSmooth] * (1.0 - ((float)(myframe%smoothDegree)/(float)smoothDegree))) +
+      (MovX_walk[i][frameSmoothPlusOne] * ((float)(myframe%smoothDegree)/(float)smoothDegree));
+    }
     angles[i][0] = averageAngle;
     angles[i][1] = 0.0;
     angles[i][2] = 0.0;

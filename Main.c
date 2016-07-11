@@ -26,6 +26,7 @@ void keyboard( unsigned char key, int x, int y) {
 		case 's': SCALE += 0.025; break;
 		case 'a': rotateAngle += 2; break;
 		case 'd': rotateAngle -= 2; break;
+    case 'r': sprint = !sprint; break;
 	}
 	glutPostRedisplay();
 }

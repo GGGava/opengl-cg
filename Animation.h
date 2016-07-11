@@ -3,6 +3,7 @@
 
 extern long int frame;
 extern int smoothDegree;
+extern char sprint;
 
 void calculateMatrix(void);
 

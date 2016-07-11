@@ -8,7 +8,7 @@
 #include <GL/glu.h>
 
 // Global Variables
-int rotateAngle = 90;
+int rotateAngle = -90;
 float SCALE = 1.3;
 
 // Movement matrices
@@ -33,7 +33,7 @@ float angles[16][3] = {
 
 void lowerLeftBackLeg(){
   glPushMatrix();
-    glRotatef(-35, 1, 0, 0);
+//     glRotatef(-35, 1, 0, 0);
     glRotatef(angles[ANGLE_LOWER_LEFT_BACK_LEG][0], 1.0, 0.0, 0.0);
     glRotatef(angles[ANGLE_LOWER_LEFT_BACK_LEG][1], 0.0, 1.0, 0.0);
     glRotatef(angles[ANGLE_LOWER_LEFT_BACK_LEG][2], 0.0, 0.0, 1.0);
@@ -44,7 +44,7 @@ void lowerLeftBackLeg(){
 
 void leftBackLeg(){
   glPushMatrix();
-    glRotatef(100, 1, 0, 0);
+//     glRotatef(100, 1, 0, 0);
     glRotatef(angles[ANGLE_LEFT_BACK_LEG][0], 1.0, 0.0, 0.0);
     glRotatef(angles[ANGLE_LEFT_BACK_LEG][1], 0.0, 1.0, 0.0);
     glRotatef(angles[ANGLE_LEFT_BACK_LEG][2], 0.0, 0.0, 1.0);
@@ -69,7 +69,7 @@ void leftBackLegJoint(){
 
 void lowerRightBackLeg(){
   glPushMatrix();
-    glRotatef(-35, 1, 0, 0);
+//     glRotatef(-35, 1, 0, 0);
     glRotatef(angles[ANGLE_LOWER_RIGHT_BACK_LEG][0], 1.0, 0.0, 0.0);
     glRotatef(angles[ANGLE_LOWER_RIGHT_BACK_LEG][1], 0.0, 1.0, 0.0);
     glRotatef(angles[ANGLE_LOWER_RIGHT_BACK_LEG][2], 0.0, 0.0, 1.0);
@@ -80,7 +80,7 @@ void lowerRightBackLeg(){
 
 void rightBackLeg(){
   glPushMatrix();
-    glRotatef(100, 1, 0, 0);
+//     glRotatef(100, 1, 0, 0);
     glRotatef(angles[ANGLE_RIGHT_BACK_LEG][0], 1.0, 0.0, 0.0);
     glRotatef(angles[ANGLE_RIGHT_BACK_LEG][1], 0.0, 1.0, 0.0);
     glRotatef(angles[ANGLE_RIGHT_BACK_LEG][2], 0.0, 0.0, 1.0);
@@ -110,7 +110,7 @@ void backLegs() {
 
 void lowerLeftFrontLeg(){
   glPushMatrix();
-    glRotatef(35, 1, 0, 0);
+//     glRotatef(35, 1, 0, 0);
     glRotatef(angles[ANGLE_LOWER_LEFT_FRONT_LEG][0], 1.0, 0.0, 0.0);
     glRotatef(angles[ANGLE_LOWER_LEFT_FRONT_LEG][1], 0.0, 1.0, 0.0);
     glRotatef(angles[ANGLE_LOWER_LEFT_FRONT_LEG][2], 0.0, 0.0, 1.0);
@@ -121,7 +121,7 @@ void lowerLeftFrontLeg(){
 
 void leftFrontLeg(){
   glPushMatrix();
-    glRotatef(75, 1, 0, 0);
+//     glRotatef(75, 1, 0, 0);
     glRotatef(angles[ANGLE_LEFT_FRONT_LEG][0], 1.0, 0.0, 0.0);
     glRotatef(angles[ANGLE_LEFT_FRONT_LEG][1], 0.0, 1.0, 0.0);
     glRotatef(angles[ANGLE_LEFT_FRONT_LEG][2], 0.0, 0.0, 1.0);
@@ -146,7 +146,7 @@ void leftFrontLegJoint(){
 
 void lowerRightFrontLeg(){
   glPushMatrix();
-    glRotatef(35, 1, 0, 0);
+//     glRotatef(35, 1, 0, 0);
     glRotatef(angles[ANGLE_LOWER_RIGHT_FRONT_LEG][0], 1.0, 0.0, 0.0);
     glRotatef(angles[ANGLE_LOWER_RIGHT_FRONT_LEG][1], 0.0, 1.0, 0.0);
     glRotatef(angles[ANGLE_LOWER_RIGHT_FRONT_LEG][2], 0.0, 0.0, 1.0);
@@ -157,7 +157,7 @@ void lowerRightFrontLeg(){
 
 void rightFrontLeg(){
   glPushMatrix();
-    glRotatef(75, 1, 0, 0);
+//     glRotatef(75, 1, 0, 0);
     glRotatef(angles[ANGLE_RIGHT_FRONT_LEG][0], 1.0, 0.0, 0.0);
     glRotatef(angles[ANGLE_RIGHT_FRONT_LEG][1], 0.0, 1.0, 0.0);
     glRotatef(angles[ANGLE_RIGHT_FRONT_LEG][2], 0.0, 0.0, 1.0);
@@ -215,7 +215,7 @@ void neck() {
 void tail(){
   glPushMatrix();
     glTranslatef(0,0,TRUNK_LENGTH*1.1 + JOINT_WIDTH/3);
-    glRotatef(30, 1,0,0);
+//     glRotatef(30, 1,0,0);
     glRotatef(angles[ANGLE_TAIL][0], 1.0, 0.0, 0.0);
     glRotatef(angles[ANGLE_TAIL][1], 0.0, 1.0, 0.0);
     glRotatef(angles[ANGLE_TAIL][2], 0.0, 0.0, 1.0);
